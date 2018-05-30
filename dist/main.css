@@ -6286,13 +6286,32 @@ a.text-dark:hover, a.text-dark:focus {
   max-width: 1200px;
   margin: auto; }
 
-.container-film__description {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; }
-
-.container-film__btn {
-  align-self: center; }
+.container-film {
+  border: 2px solid #535353;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px;
+  background: #9c5353;
+  height: 100%;
+  width: 95%; }
+  .container-film__img {
+    border: 1px solid #fff;
+    border-radius: 2px; }
+  .container-film__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+  .container-film__btn {
+    align-self: center; }
+  .container-film__title {
+    color: #043824;
+    font-weight: 700;
+    font-size: 20px;
+    transition: color .5s linear; }
+    .container-film__title:hover {
+      color: #066e3a;
+      text-decoration: none; }
+  .container-film__overview {
+    color: #fff; }
 /*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors

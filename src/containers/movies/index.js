@@ -13,15 +13,15 @@ class Movies extends Component {
     }
 
     renderFilms (film, index) {
-        const shortDescription = `${R.take(100, film.overview)}...`
+        const shortDescription = `${R.take(150, film.overview)}...`
         return (
-            <div className='col-sm-12 col-lg-6 pb-1' key={index}>
+            <div className='col-sm-12 col-lg-6 pb-2' key={index}>
                 <div className='container-film row'>
                     <div className='col-5 p-0 container-film__img'><img className='img-fluid' src={` https://image.tmdb.org/t/p/w600_and_h900_bestv2${film.poster_path}`} alt="phone.title"/></div>
                     <div className='col-7 container-film__description'>
                         <div className='container-film__about'>
-                            <Link to={`/films/${film.id}`}>{film.title}</Link>
-                            <p>{shortDescription}</p>
+                            <Link to={`/films/${film.id}`} className='container-film__title'>{film.title}</Link>
+                            <p className='container-film__overview'>{shortDescription}</p>
                         </div>
                        <div className='container-film__btn'><Link to={`/films/${film.id}`} className='btn btn-primary'>More info</Link></div>
                     </div>

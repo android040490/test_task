@@ -51288,7 +51288,7 @@ var Layout = function Layout(_ref) {
     var children = _ref.children;
     return _react2.default.createElement(
         'div',
-        { className: 'view-container pt-5' },
+        { className: 'pt-5' },
         _react2.default.createElement(
             'div',
             { className: 'container' },
@@ -52389,10 +52389,10 @@ var Movies = function (_Component) {
     }, {
         key: 'renderFilms',
         value: function renderFilms(film, index) {
-            var shortDescription = _ramda2.default.take(100, film.overview) + '...';
+            var shortDescription = _ramda2.default.take(150, film.overview) + '...';
             return _react2.default.createElement(
                 'div',
-                { className: 'col-sm-12 col-lg-6 pb-1', key: index },
+                { className: 'col-sm-12 col-lg-6 pb-2', key: index },
                 _react2.default.createElement(
                     'div',
                     { className: 'container-film row' },
@@ -52409,12 +52409,12 @@ var Movies = function (_Component) {
                             { className: 'container-film__about' },
                             _react2.default.createElement(
                                 _reactRouter.Link,
-                                { to: '/films/' + film.id },
+                                { to: '/films/' + film.id, className: 'container-film__title' },
                                 film.title
                             ),
                             _react2.default.createElement(
                                 'p',
-                                null,
+                                { className: 'container-film__overview' },
                                 shortDescription
                             )
                         ),

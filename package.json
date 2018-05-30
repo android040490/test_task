@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "webpack": "webpack",
-    "start": "webpack-dev-server"
+    "start": "node server.js",
+    "dev": "webpack-dev-server --hot --open --watch"
   },
   "dependencies": {
     "autoprefixer": "^7.2.5",

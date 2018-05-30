@@ -1,5 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
 
+$brd-col: rgb(83, 83, 83);
+$bg-col: rgb(156, 83, 83);
+$title-col: rgb(4, 56, 36);
+
 .wrapper{
     max-width: 1200px;
     margin: auto;
@@ -7,8 +11,15 @@
 
 
 .container-film{
+    border: 2px solid $brd-col;
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px;
+    background: $bg-col;
+    height: 100%;
+    width: 95%;
     &__img{
-
+        border: 1px solid #fff;
+        border-radius: 2px;
     }
     &__description{
         display: flex;
@@ -17,6 +28,19 @@
     }
     &__btn{
         align-self: center;
+    }
+    &__title{
+        color: $title-col;
+        font-weight: 700;
+        font-size: 20px;
+        transition: color .5s linear;
+        &:hover{
+            color: rgb(6, 110, 58);
+            text-decoration: none;
+        }
+    }
+    &__overview{
+        color: #fff;
     }
 }
 

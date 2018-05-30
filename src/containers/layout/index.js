@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from 'components/sidebar'
 
 const Layout = ({children}) => (
-    <div className='view-container pt-5'>
+    <div className='pt-5'>
         <div className='container'>
             <div className='row'>
                 <div className='col-md-3'>
