@@ -1,0 +1,30 @@
+@import "~bootstrap/scss/bootstrap";
+
+.wrapper{
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+.container-film{
+    &__img{
+
+    }
+    &__description{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__btn{
+        align-self: center;
+    }
+}
+
+.film-details{
+    &__img{
+
+    }
+    &__details{
+        
+    }
+}
