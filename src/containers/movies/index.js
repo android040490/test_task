@@ -16,14 +16,15 @@ class Movies extends Component {
         const shortDescription = `${R.take(150, film.overview)}...`
         return (
             <div className='col-sm-12 col-lg-6 pb-2' key={index}>
-                <div className='container-film row'>
-                    <div className='col-5 p-0 container-film__img'><img className='img-fluid' src={` https://image.tmdb.org/t/p/w600_and_h900_bestv2${film.poster_path}`} alt="phone.title"/></div>
-                    <div className='col-7 container-film__description'>
-                        <div className='container-film__about'>
-                            <Link to={`/films/${film.id}`} className='container-film__title'>{film.title}</Link>
-                            <p className='container-film__overview'>{shortDescription}</p>
+                <div className='film-preview row m-0'>
+                    <div className='col-12 col-sm-5 p-0 film-preview__img'><img className='img-fluid pl-2 ' src={` https://image.tmdb.org/t/p/w600_and_h900_bestv2${film.poster_path}`} alt={film.title}/></div>
+                    <div className='col-12 col-sm-7 film-preview__description'>
+                        <div className='film-preview__about'>
+                            <Link to={`/films/${film.id}`} className='film-preview__title'>{film.title}<span>({new Date(film.release_date).getFullYear()})</span></Link>
+                            
+                            <p className='film-preview__overview'>{shortDescription}</p>
                         </div>
-                       <div className='container-film__btn'><Link to={`/films/${film.id}`} className='btn btn-primary'>More info</Link></div>
+                       <div className='film-preview__btn'><Link to={`/films/${film.id}`} className='btn btn-primary'>More info</Link></div>
                     </div>
                 </div>
                 

@@ -4,7 +4,8 @@ import {Link} from 'react-router'
 import R from 'ramda';
 
 import {fetchFilmById} from 'actions'
-import {getFilmsById} from 'selectors'
+import {getFilmsById , getStringOfFields} from 'selectors'
+import Sidebar from 'components/sidebar';
 
 class Film extends Component {
     componentDidMount() {
@@ -16,16 +17,24 @@ class Film extends Component {
         const {film} = this.props
         console.log('film', film)
         return (
-            <div className="row film-details">
+            <div className="row m-0 film-details">
                 <div className="col-sm-4 film-details__img">
-                    <img className='img-thumbnail' src={` https://image.tmdb.org/t/p/original${film.poster_path}`} alt="" />
+                    <img className='img-thumbnail' src={` https://image.tmdb.org/t/p/original${film.poster_path}`} alt="{film.title}" />
                 </div>
-                <div className="col-sm-8 film-details__details">
+                <div className="col-sm-8 film-details__description">
                     <div>
-                        <h3>{film.title}</h3>
+                        <h3 className='film-details__title'>{film.title}<span>({new Date(film.release_date).getFullYear()})</span></h3>
                     </div>
                     <div>
-                        <h4>Overview</h4>
+                        <p><strong>Release date:</strong> <span>{new Date(film.release_date).toLocaleDateString()}</span></p>
+                        <p><strong>Original language: </strong><span>{film.original_language}</span></p>
+                        <p><strong>Production companies: </strong>{getStringOfFields('name', film.production_companies)}</p>
+                        <p><strong>Production countries: </strong>{getStringOfFields('name', film.production_countries)}</p>
+                        <p><strong>Genre: </strong>{getStringOfFields('name', film.genres)}</p>
+                        <p><strong>Budget: </strong>{film.budget} $</p>
+                        <p><strong>Revenue: </strong>{film.revenue} $</p>
+                        <p><strong>Runtime: </strong>{film.runtime} m</p>
+                        <h5>Overview:</h5>
                         <p>{film.overview}</p>
                     </div>
                 </div>
@@ -37,8 +46,12 @@ class Film extends Component {
         const {film} = this.props
         return (
             <div className='wrapper'>
-                {film && (film.id == this.props.params.id) && this.renderFilm()}
-                <div><Link to='/' className='btn btn-primary'>Return to the list</Link></div>
+                <div className='container-fluid'>
+                    <div className='row'>
+                        <div className='col-12 col-lg-3 p-0'><Sidebar ><Link to='/' className='btn btn-primary'> &lt; Return to the list</Link></Sidebar></div>
+                        <div className='col-12 col-lg-9 p-0'>{film && (film.id == this.props.params.id) && this.renderFilm()}</div>
+                    </div>
+                </div>
             </div>
         );
     }
@@ -49,7 +62,6 @@ const mapDispatchToProps = {
 }
 const mapStateToProps = (state) => ({
     film : state.filmDetails
-    // film : getFilmsById(state, state.filmDetails.id)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Film);

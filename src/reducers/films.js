@@ -14,10 +14,7 @@ export default (state = initialState, { type, payload}) => {
             const newValues = R.indexBy( R.prop('id'), payload);
             return R.merge(state, newValues);
         
-        // case FETCH_FILM_BY_ID_SUCCESS:
-        //     return R.assoc(payload.id, payload, state);
-        
-            default:
+        default:
             return state
     }
     

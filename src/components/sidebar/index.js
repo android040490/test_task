@@ -2,10 +2,10 @@ import React from 'react';
 
 import Search from 'components/search'
 
-const Sidebar = () => {
+const Sidebar = ({children}) => {
     return (
-    <div>
-        <Search/>
+    <div className='sidebar'>
+        {children}
     </div>
     )
 } 

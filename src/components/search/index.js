@@ -5,23 +5,22 @@ import {searchFilm} from 'actions';
 
 class Search extends Component {
     constructor (props){
-        super(props)
+        super(props);
         this.state = {
             value : ''
-        }
+        };
         this.handleChange = this.handleChange.bind(this);
         this.debounce = this.debounce.bind(this);
     }
 
-    search = this.debounce(this.props.searchFilm , 1000);
+    search = this.debounce(this.props.searchFilm , 800);
 
     handleChange(event){
-        let value = event.target.value
-        this.search(value)
+        let value = event.target.value;
+        this.search(value);
     }
 
     debounce(f, ms) {
-        
         let timer = null;
       
         return function (...args) {
@@ -40,9 +39,10 @@ class Search extends Component {
 
     render() {
         return (
-            <div>
+            <div className="search-form">
                 <form action="">
-                    <input type="text" onChange={this.handleChange} placeholder="Search"/>
+                    <div><label htmlFor="search">Search film</label></div>
+                    <input id="search" type="text" onChange={this.handleChange} placeholder="Search"/>
                 </form>
             </div>
         );
