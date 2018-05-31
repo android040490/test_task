@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router'
-import R from 'ramda'
-import {bindActionCreators} from 'redux'
+import {Link} from 'react-router';
+import R from 'ramda';
+import {bindActionCreators} from 'redux';
 
-import {fetchFilms} from 'actions';
-import {getFilms} from 'selectors'
+import {changePage} from 'actions';
+import {getFilms} from 'selectors';
+import Pagination from 'components/pagination';
 
 class Movies extends Component {
     componentDidMount() {
-        this.props.fetchFilms()
+        // this.props.fetchFilms(this.props.currentPage)
+        this.props.changePage(this.props.currentPage)
     }
 
     renderFilms (film, index) {
@@ -43,6 +45,7 @@ class Movies extends Component {
             
                 <div className="row">
                     {filterFilms.map((film, index) => this.renderFilms(film, index))}
+                    <div className='col-12'><Pagination /></div>
                 </div>
         );
     }
@@ -50,11 +53,12 @@ class Movies extends Component {
 
 const mapStateToProps = state => ({
     films: getFilms(state),
-    filmsPage: state.filmsPage
+    filmsPage: state.filmsPage,
+    currentPage : state.filmsPage.currentPage
 })
 
 const mapDispatchToProps = { 
-    fetchFilms
+    changePage
 }
 
 export default connect( mapStateToProps , mapDispatchToProps)(Movies);

@@ -3,16 +3,26 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router'
 import R from 'ramda';
 
-import {fetchFilmById} from 'actions'
+import {fetchFilmById, changePage} from 'actions'
 import {getFilmsById , getStringOfFields} from 'selectors'
 import Sidebar from 'components/sidebar';
 
 class Film extends Component {
+    constructor(props){
+        super(props)
+
+        this.handleClick = this.handleClick.bind(this);
+    }
     componentDidMount() {
         
         this.props.fetchFilmById(this.props.params.id)
     }
     
+    handleClick(){
+        console.log('click')
+        this.props.changePage(this.props.currentPage)
+    }
+
     renderFilm(){
         const {film} = this.props
         console.log('film', film)
@@ -48,8 +58,14 @@ class Film extends Component {
             <div className='wrapper pt-5'>
                 <div className='container-fluid'>
                     <div className='row'>
-                        <div className='col-12 col-lg-3'><Sidebar ><Link to='/' className='btn btn-primary'> &lt; Return to the list</Link></Sidebar></div>
-                        <div className='col-12 col-lg-9 '>{film && (film.id == this.props.params.id) && this.renderFilm()}</div>
+                        <div className='col-12 col-lg-3'>
+                            <Sidebar >
+                                <Link to='/' onClick={this.handleClick} className='btn btn-primary'> &lt; Return to the list</Link>
+                            </Sidebar>
+                        </div>
+                        <div className='col-12 col-lg-9 '>
+                            {film && (film.id == this.props.params.id) && this.renderFilm()}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,10 +74,12 @@ class Film extends Component {
 }
 
 const mapDispatchToProps = {
-    fetchFilmById
+    fetchFilmById,
+    changePage
 }
 const mapStateToProps = (state) => ({
-    film : state.filmDetails
+    film : state.filmDetails,
+    currentPage : state.filmsPage.currentPage
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Film);

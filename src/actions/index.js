@@ -9,15 +9,16 @@ import {
 } from 'actionTypes'
 import axios from 'axios'
 
-export const fetchFilms = () => async dispatch => {
+export const changePage = index => async dispatch => {
     dispatch({ type: FETCH_FILMS_START})
 
-    axios.get('https://api.themoviedb.org/3/movie/top_rated?api_key=ea53235d3cd5996cc07ef798483ee9c3&language=en-US&page=1')
+    await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=ea53235d3cd5996cc07ef798483ee9c3&language=en-US&page=${index}`)
         .then(function (response) {
-            // console.log(response.data.results)
+            
             dispatch({      
                 type: FETCH_FILMS_SUCCESS,
-                payload: response.data.results
+                payload: response.data.results,
+                currentPage: index
             })
         })
         .catch(function (err) {
@@ -26,8 +27,7 @@ export const fetchFilms = () => async dispatch => {
                 payload: err,
                 error: true
                 })
-      });
-    
+      });  
 }
 
 export const fetchFilmById = id => async dispatch => {

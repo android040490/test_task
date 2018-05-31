@@ -7,14 +7,16 @@ import {
 
 const initialState = {
     ids: [],
-    search: ''
+    search: '',
+    currentPage: 1
 }
 
-export default (state = initialState, { type, payload }) => {
+export default (state = initialState, { type, payload, currentPage }) => {
     switch (type) {
         case FETCH_FILMS_SUCCESS:
             return R.merge(state, {
-                ids: R.pluck('id', payload)
+                ids: R.pluck('id', payload),
+                currentPage: currentPage
             })
         case SEARCH_FILM:
             return R.merge(state, { search: payload })
