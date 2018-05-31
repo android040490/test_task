@@ -6350,6 +6350,11 @@ a.text-dark:hover, a.text-dark:focus {
     font-weight: 600; }
   .search-form input {
     padding-left: 10px; }
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px; }
 /*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
