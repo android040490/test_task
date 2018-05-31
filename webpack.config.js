@@ -36,12 +36,7 @@ module.exports = {
                   use: ['css-loader', 'sass-loader']
                 })
               },
-            // {
-            //     test: /\.scss$/, // scss
-            //     loader: ExtractTextPlugin.extract({
-            //         use: ["style-loader","css-loader", "postcss-loader", "sass-loader"], // npm install scss-loader --save-dev
-            //     })
-            // }
+           
             {
                 test: /\.(png|jpg)$/,
                 use: [

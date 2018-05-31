@@ -52401,12 +52401,12 @@ var Movies = function (_Component) {
                     { className: 'film-preview row m-0' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 col-sm-5 p-0 film-preview__img' },
+                        { className: 'col-12 col-sm-5 p-0 pt-2  film-preview__img' },
                         _react2.default.createElement('img', { className: 'img-fluid pl-2 ', src: ' https://image.tmdb.org/t/p/w600_and_h900_bestv2' + film.poster_path, alt: film.title })
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 col-sm-7 film-preview__description' },
+                        { className: 'col-12 col-sm-7  film-preview__description' },
                         _react2.default.createElement(
                             'div',
                             { className: 'film-preview__about' },
@@ -52454,14 +52454,10 @@ var Movies = function (_Component) {
             var filterFilms = _ramda2.default.filter(applySearch, films);
             return _react2.default.createElement(
                 'div',
-                { className: '' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    filterFilms.map(function (film, index) {
-                        return _this2.renderFilms(film, index);
-                    })
-                )
+                { className: 'row' },
+                filterFilms.map(function (film, index) {
+                    return _this2.renderFilms(film, index);
+                })
             );
         }
     }]);
@@ -52687,7 +52683,7 @@ var Film = function (_Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: 'wrapper' },
+                { className: 'wrapper pt-5' },
                 _react2.default.createElement(
                     'div',
                     { className: 'container-fluid' },
@@ -52696,7 +52692,7 @@ var Film = function (_Component) {
                         { className: 'row' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'col-12 col-lg-3 p-0' },
+                            { className: 'col-12 col-lg-3' },
                             _react2.default.createElement(
                                 _sidebar2.default,
                                 null,
@@ -52709,7 +52705,7 @@ var Film = function (_Component) {
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'col-12 col-lg-9 p-0' },
+                            { className: 'col-12 col-lg-9 ' },
                             film && film.id == this.props.params.id && this.renderFilm()
                         )
                     )

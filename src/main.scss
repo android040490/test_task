@@ -28,6 +28,7 @@ $title-col:rgb(116, 17, 17);
     height: 100%;
     width: 100%;
     margin: auto;
+    padding-bottom: 10px;
     &:hover::after{
         opacity: 1;
         z-index: -1;
@@ -42,7 +43,7 @@ $title-col:rgb(116, 17, 17);
         transition: all .5s linear;
     }
     &__img{
-        border: 1px solid #fff;
+        padding-top: 10px;
         border-radius: 2px;
     }
     &__description{
@@ -76,12 +77,6 @@ $title-col:rgb(116, 17, 17);
     box-sizing: border-box;
     background: $bg-col;
     color: #fff;
-    &__img{
-
-    }
-    &__description{
-        
-    }
     &__title{
         color: $title-col;
     }

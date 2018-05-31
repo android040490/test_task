@@ -17,8 +17,8 @@ class Movies extends Component {
         return (
             <div className='col-sm-12 col-lg-6 pb-2' key={index}>
                 <div className='film-preview row m-0'>
-                    <div className='col-12 col-sm-5 p-0 film-preview__img'><img className='img-fluid pl-2 ' src={` https://image.tmdb.org/t/p/w600_and_h900_bestv2${film.poster_path}`} alt={film.title}/></div>
-                    <div className='col-12 col-sm-7 film-preview__description'>
+                    <div className='col-12 col-sm-5 p-0 pt-2  film-preview__img'><img className='img-fluid pl-2 ' src={` https://image.tmdb.org/t/p/w600_and_h900_bestv2${film.poster_path}`} alt={film.title}/></div>
+                    <div className='col-12 col-sm-7  film-preview__description'>
                         <div className='film-preview__about'>
                             <Link to={`/films/${film.id}`} className='film-preview__title'>{film.title}<span>({new Date(film.release_date).getFullYear()})</span></Link>
                             
@@ -40,11 +40,10 @@ class Movies extends Component {
         const applySearch = item => R.contains( searchString.toLowerCase() , R.prop('title', item).toLowerCase())
         const filterFilms = R.filter( applySearch, films )
         return (
-            <div className=''>
+            
                 <div className="row">
                     {filterFilms.map((film, index) => this.renderFilms(film, index))}
                 </div>
-            </div>
         );
     }
 }

@@ -45,11 +45,11 @@ class Film extends Component {
     render() {
         const {film} = this.props
         return (
-            <div className='wrapper'>
+            <div className='wrapper pt-5'>
                 <div className='container-fluid'>
                     <div className='row'>
-                        <div className='col-12 col-lg-3 p-0'><Sidebar ><Link to='/' className='btn btn-primary'> &lt; Return to the list</Link></Sidebar></div>
-                        <div className='col-12 col-lg-9 p-0'>{film && (film.id == this.props.params.id) && this.renderFilm()}</div>
+                        <div className='col-12 col-lg-3'><Sidebar ><Link to='/' className='btn btn-primary'> &lt; Return to the list</Link></Sidebar></div>
+                        <div className='col-12 col-lg-9 '>{film && (film.id == this.props.params.id) && this.renderFilm()}</div>
                     </div>
                 </div>
             </div>
