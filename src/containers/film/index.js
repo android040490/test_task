@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router'
+import {Link} from 'react-router';
 import R from 'ramda';
 
-import {fetchFilmById, changePage} from 'actions'
-import {getFilmsById , getStringOfFields} from 'selectors'
+import {fetchFilmById, changePage} from 'actions';
+import {getFilmsById , getStringOfFields} from 'selectors';
 import Sidebar from 'components/sidebar';
 
 class Film extends Component {
     constructor(props){
-        super(props)
+        super(props);
 
         this.handleClick = this.handleClick.bind(this);
     }
+
     componentDidMount() {
         
-        this.props.fetchFilmById(this.props.params.id)
+        this.props.fetchFilmById(this.props.params.id);
     }
     
     handleClick(){
-        console.log('click')
-        this.props.changePage(this.props.currentPage)
+        console.log('click');
+        this.props.changePage(this.props.currentPage);
     }
 
     renderFilm(){
@@ -50,10 +51,11 @@ class Film extends Component {
                 </div>
             </div>
             
-        )
-    }
+        );
+    };
+
     render() {
-        const {film} = this.props
+        const {film} = this.props;
         return (
             <div className='wrapper pt-5'>
                 <div className='container-fluid'>
@@ -70,16 +72,17 @@ class Film extends Component {
                 </div>
             </div>
         );
-    }
-}
+    };
+};
 
 const mapDispatchToProps = {
     fetchFilmById,
     changePage
-}
+};
+
 const mapStateToProps = (state) => ({
     film : state.filmDetails,
     currentPage : state.filmsPage.currentPage
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Film);

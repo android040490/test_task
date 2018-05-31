@@ -6317,6 +6317,8 @@ a.text-dark:hover, a.text-dark:focus {
   .film-preview__img {
     padding-top: 10px;
     border-radius: 2px; }
+    .film-preview__img img {
+      padding: 5px; }
   .film-preview__description {
     display: flex;
     flex-direction: column;
@@ -6355,6 +6357,8 @@ a.text-dark:hover, a.text-dark:focus {
   display: flex;
   justify-content: flex-end;
   padding-bottom: 10px; }
+  .pagination__btn {
+    margin: 10px; }
 /*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors

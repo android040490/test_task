@@ -45,6 +45,9 @@ $title-col:rgb(116, 17, 17);
     &__img{
         padding-top: 10px;
         border-radius: 2px;
+        img{
+            padding: 5px;
+        }
     }
     &__description{
         display: flex;
@@ -95,9 +98,13 @@ $title-col:rgb(116, 17, 17);
     }
 }
 
+// Pgination 
 .pagination{
     display: flex;
     justify-content: flex-end;
     padding-bottom: 10px;
+    &__btn{
+        margin: 10px;
+    }
     
 }

@@ -1,7 +1,7 @@
-import React from 'react'
-import Sidebar from 'components/sidebar'
-import Search from 'components/search'
-import Pagination from 'components/pagination'
+import React from 'react';
+import Sidebar from 'components/sidebar';
+import Search from 'components/search';
+import Pagination from 'components/pagination';
 
 const Layout = ({children}) => (
     <div className='pt-5'>
@@ -23,6 +23,6 @@ const Layout = ({children}) => (
             </div>
         </div>
     </div>
-)
+);
 
-export default Layout
+export default Layout;

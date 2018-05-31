@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 
 import {searchFilm} from 'actions';
 
@@ -11,14 +11,14 @@ class Search extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.debounce = this.debounce.bind(this);
-    }
+    };
 
     search = this.debounce(this.props.searchFilm , 800);
 
     handleChange(event){
         let value = event.target.value;
         this.search(value);
-    }
+    };
 
     debounce(f, ms) {
         let timer = null;
@@ -27,15 +27,15 @@ class Search extends Component {
             const onComplete = () => {
                 f.apply(this, args);
                 timer = null;
-            }
+            };
 
             if (timer) {
                 clearTimeout(timer);
-            }
+            };
 
             timer = setTimeout(onComplete, ms);
         };
-    }
+    };
 
     render() {
         return (
@@ -46,11 +46,11 @@ class Search extends Component {
                 </form>
             </div>
         );
-    }
-}
+    };
+};
 
 const mapDispatchToProps = {
     searchFilm
-}
+};
 
 export default connect(null, mapDispatchToProps)(Search);

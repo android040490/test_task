@@ -1,12 +1,12 @@
-import R from 'ramda'
+import R from 'ramda';
 
 import {
     FETCH_FILMS_SUCCESS,
     FETCH_FILM_BY_ID_SUCCESS
-} from '../actionTypes'
+} from '../actionTypes';
 
 
-const initialState = {}
+const initialState = {};
 
 export default (state = initialState, { type, payload}) => {
     switch (type) {
@@ -15,7 +15,7 @@ export default (state = initialState, { type, payload}) => {
             return R.merge(state, newValues);
         
         default:
-            return state
+            return state;
     }
     
 }
