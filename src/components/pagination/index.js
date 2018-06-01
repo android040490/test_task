@@ -24,7 +24,7 @@ class Pagination extends Component {
     render() {
         return (
             <div className="pagination"> 
-                <button className="btn btn-primary pagination__btn"  data={-1} onClick={this.onChangePage}>&lt; Back</button>
+                <button className="btn btn-primary pagination__btn"  data={-1} onClick={this.onChangePage}>&lt; Prev</button>
                 <button className="btn btn-primary pagination__btn"  data={1} onClick={this.onChangePage}>Next &gt;</button>
             </div>
         );

@@ -6288,9 +6288,10 @@ a.text-dark:hover, a.text-dark:focus {
 
 .sidebar {
   width: 100%;
-  padding: 20px 0 20px 20px;
+  padding: 20px 20px 20px 20px;
   border: 2px solid #535353;
-  background: #2fa08d; }
+  background: #2fa08d;
+  margin-bottom: 10px; }
 
 .film-preview {
   position: relative;
@@ -6351,7 +6352,8 @@ a.text-dark:hover, a.text-dark:focus {
     color: #fff;
     font-weight: 600; }
   .search-form input {
-    padding-left: 10px; }
+    padding-left: 10px;
+    width: 100%; }
 
 .pagination {
   display: flex;

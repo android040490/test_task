@@ -23838,7 +23838,7 @@ var Pagination = function (_Component) {
                 _react2.default.createElement(
                     'button',
                     { className: 'btn btn-primary pagination__btn', data: -1, onClick: this.onChangePage },
-                    '< Back'
+                    '< Prev'
                 ),
                 _react2.default.createElement(
                     'button',
